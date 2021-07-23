@@ -10,3 +10,7 @@ interface Teacher {
 interface Directors extends Teacher {
   numberOfReports: number;
 }
+
+export default function printTeracher({firstName, lastName}: Teacher) {
+  return (`${firstName.slice(0, 1)}. ${lastName})`);
+}
