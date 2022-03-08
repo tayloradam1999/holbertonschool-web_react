@@ -2,7 +2,7 @@
   "name": "task_2",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
+  "main": "index.js",
   "dependencies": {
     "jquery": "^3.6.0",
     "lodash": "^4.17.21"
