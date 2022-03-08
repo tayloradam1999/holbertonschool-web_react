@@ -11,7 +11,7 @@ $('body').append(`<p id="count"></p>`);
 $('body').append(`<p>Copyright - Holberton School</p>`);
 
 // bind lodash's debounce to the button
-$('button').on('click', _.debounce(updateCounter, 100));
+$('button').on('click', _.debounce(updateCounter, 500));
 
 let count  = 0;
 // function to update the counter
