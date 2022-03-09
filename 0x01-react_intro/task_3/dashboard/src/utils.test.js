@@ -9,12 +9,18 @@ test('getFullYear returns correct year', () => {
 });
 
 
-// test to check that getFooter returns correc string
-// when arg is true or false
-test('getFooter returns correct string', () => {
-	  expect(getFooterCopy(true)).toBe('Holberton School');
+// test to check that getFooter returns correct string
+// when arg is false
+test('getFooter returns correct string if false', () => {
 	  expect(getFooterCopy(false)).toBe('Holberton School main dashboard');
 });
+
+// test to check that getFooter returns correct string
+// when arg is true
+test('getFooter returns correct string if true', () => {
+	expect(getFooterCopy(true)).toBe('Holberton School');
+});
+
 
 
 // test to check that getLatestNotification returns correct
