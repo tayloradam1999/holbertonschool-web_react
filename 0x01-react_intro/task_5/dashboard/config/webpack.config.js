@@ -6,7 +6,7 @@ module.exports = {
 	entry: './src/index.js',
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve('./dist')
 	},
 	module: {
 		rules: [
@@ -32,8 +32,8 @@ module.exports = {
 	devtool: 'inline-source-map',
 	devServer: {
 		hot: true,
-		static: path.join(__dirname, './dist'),
+		static: path.join('./dist'),
 		compress: true,
-		port: 3000,
+		port: 8564,
 	},
 };
