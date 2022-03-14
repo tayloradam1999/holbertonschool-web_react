@@ -1,13 +1,9 @@
 import React from 'react'
 
-export default function NotificationItem(props) {
-	// props:
-	// - type: rendered with data-notification-type
-	// - html: rendered within the tag <li>
-	// - value: rendered with dangerouslySetInnerHTML
-	return (
-		<li data-notification-type={props.type} dangerouslySetInnerHTML={props.html}>
-			{props.value}
-		</li>
-	)
+
+const NotificationItem = ({ type, value, html }) => {
+	if (value) return(<li data-notification-type={type}>{value}</li>)
+	if (html) return(<li data-notification-type={type} dangerouslySetInnerHTML={{ __html: html }}></li>)
 }
+
+export default NotificationItem
