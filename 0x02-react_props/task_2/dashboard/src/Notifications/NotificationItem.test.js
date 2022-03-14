@@ -11,8 +11,8 @@ describe('<NotificationItem />', () => {
 	})
 
 	it('Passes dumby `type` prop and checks for correct html rendering', () => {
-		const wrapper = shallow(<NotificationItem type="success" />);
-		expect(wrapper.find('li').prop('data-notification-type')).toBe('success');
+		const wrapper = shallow(<NotificationItem type="urgent" />);
+		expect(wrapper.html()).toContain('urgent');
 	})
 
 	it('Passes dumby `value` prop and checks for correct html rendering', () => {
