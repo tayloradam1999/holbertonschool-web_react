@@ -1,0 +1,19 @@
+table {
+	display: table;
+	border: 1px solid;
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+}
+
+tr th {
+	text-align: start;
+	border-bottom: 1px solid;
+}
+
+th[colSpan="2"] {
+	text-align: center;
+	border: 1px solid;
+	padding-bottom: 1rem;
+}
