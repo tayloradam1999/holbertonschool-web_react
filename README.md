@@ -93,7 +93,7 @@ React can also render on the server using ```Node``` and power mobile apps using
 - How to use Enzyme’s Shadow rendering to test your application
 - How to use React with Webpack & Babel
   
-**Example of a basic React app**  
+**Example of a basic ```React app```**  
   
 ```index.html```  
   
