@@ -3,15 +3,20 @@ All of the concept based React projects for Holberton Tulsa
 
 ## [0x00-Webpack](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x00-Webpack)
 Webpack is an open-source JavaScript module bundler. It is made primarily for ```JavaScript```, but it can transform front-end assets such as ```HTML```, ```CSS```, and images if the corresponding loaders are included. Webpack takes modules with dependencies and generates static assets representing those modules.  
+  
 ```Node.js``` is required for using webpack.  
+  
 Webpack takes the dependencies and generates a dependency graph allowing web developers to use a modular approach for their web application development purposes. It can be used from the command line or can be configured using a configuration file which is named webpack.config.js. This file defines rules, plugins, etc., for a project. (webpack is highly extensible via rules which allow developers to write custom tasks that they want to perform when bundling files together.)  
+  
 ### Learning Objectives  
 - How to setup Webpack for a basic project
 - Entry points, output, and loaders
 - How to add plugins
 - How to split your code into chunks
 - How to setup a dev server  
+  
 **Example of ```webpack.config.js``` file**  
+  
 ```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -69,11 +74,17 @@ module.exports = {
 	
 }
 ```  
+  
 ## [0x01-react_intro](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x01-react_intro)  
+  
 React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.  
+  
 Build encapsulated components that manage their own state, then compose them to make complex UIs.  
+  
 Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.  
+  
 React can also render on the server using ```Node``` and power mobile apps using ```React Native```.  
+  
 ### Learning Objectives  
 - How to create a basic Javascript application using React
 - How to use the package ```create-react-app```to start developing quickly with React
@@ -81,8 +92,11 @@ React can also render on the server using ```Node``` and power mobile apps using
 - How to use the React Developer Tools to debug your code
 - How to use Enzyme’s Shadow rendering to test your application
 - How to use React with Webpack & Babel
+  
 **Example of a basic React app**  
+  
 ```index.html```  
+  
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -128,7 +142,9 @@ React can also render on the server using ```Node``` and power mobile apps using
   </body>
 </html>
 ```  
-```App.js```  
+   
+```App.js``` 
+   
 ```javascript
 import React, { Component } from 'react'
 import logo from './logo.jpg'
@@ -153,7 +169,9 @@ export default class App extends Component {
 	}
 }
 ```  
+  
 ```index.js```  
+  
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
