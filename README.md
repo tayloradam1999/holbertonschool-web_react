@@ -202,6 +202,14 @@ Props are **immutable** so we cannot modify the props from inside the component.
   
 When you need immutable data in the component, you have to add props to ```reactDom.render()``` method in the ```main.js``` file of your ReactJS project and used it inside the component in which you need. It can be explained in the below example.  
   
+### Learning Objectives
+- How to create basic React components using functions
+- How to reuse components
+- How to pass properties to components
+- How to define types for components
+- How to use Fragments
+- When to use a key to improve a loop’s performance  
+  
 **Here is an example of React *"properties"* being utilized.**  
   
 ```App.js```  
@@ -288,4 +296,13 @@ To use this component in your application, use similar syntax as normal HTML: ``
   
 ```javascript  
 ReactDOM.render(<Car />, document.getElementById('root'));
-```
+```  
+  
+### Learning Objectives
+- When to use a Class or a function to create a component
+- The lifecycle of a Class component
+- How to test a component
+- How to utilize a Jest spy to verify that a function is being called correctly
+- What an HOC is and how to use it
+- How to optimize performance and control which components to render  
+  
