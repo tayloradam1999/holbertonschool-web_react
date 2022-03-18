@@ -193,3 +193,46 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 ```  
+  
+## [0x02-react_props](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x02-react_props)
+  
+Props stand for *"Properties."* They are read-only components. It is an object which stores the value of attributes of a tag and work similar to the HTML attributes. It gives a way to pass data from one component to other components. It is similar to function arguments. Props are passed to the component in the same way as arguments passed in a function.    
+  
+Props are **immutable** so we cannot modify the props from inside the component. Inside the components, we can add attributes called props. These attributes are available in the component as this.props and can be used to render dynamic data in our render method.  
+  
+When you need immutable data in the component, you have to add props to ```reactDom.render()``` method in the ```main.js``` file of your ReactJS project and used it inside the component in which you need. It can be explained in the below example.  
+  
+```App.js```  
+  
+```javascript
+import React, { Component } from 'react';  
+class App extends React.Component {  
+   render() {     
+      return (  
+          <div>  
+            <h1> Welcome to { this.props.name } </h1>    
+            <p> <h4> Javatpoint is one of the best Java training institute in Noida, Delhi, Gurugram, Ghaziabad and Faridabad. </h4> </p>          
+          </div>  
+      );  
+   }  
+}  
+export default App;  
+```  
+  
+```Main.js```
+  
+```javascript
+import React from 'react';  
+import ReactDOM from 'react-dom';  
+import App from './App.js';  
+  
+ReactDOM.render(<App name = "JavaTpoint!!" />, document.getElementById('app')); 
+```  
+  
+**Output**  
+  
+```
+Welcome to JavaTpoint!!
+Javatpoint is one of the best Java training institute in Noida, Delhi, Gurugram, Ghaziabad and Faridabad.
+```
+  
