@@ -202,7 +202,8 @@ Props are **immutable** so we cannot modify the props from inside the component.
   
 When you need immutable data in the component, you have to add props to ```reactDom.render()``` method in the ```main.js``` file of your ReactJS project and used it inside the component in which you need. It can be explained in the below example.  
   
-**Here is an example of react *"Properties"* being utilized.**
+**Here is an example of React *"properties"* being utilized.**  
+  
 ```App.js```  
   
 ```javascript
@@ -237,3 +238,54 @@ Welcome to JavaTpoint!!
 Javatpoint is one of the best Java training institute in Noida, Delhi, Gurugram, Ghaziabad and Faridabad.
 ```
   
+## [0x03-React_component]()
+  
+Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML.  
+  
+Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function components.  
+  
+### Create your first component  
+  
+When creating a React component, the component's name MUST start with an upper case letter  
+  
+#### Class Component  
+  
+A class component must include the ```extends React.Component``` statement. This statement creates an inheritance to ```React.Component```, and gives your component access to ```React.Component's``` functions.  
+  
+The component also requires a ```render()``` method, this method returns HTML.  
+  
+#### Example - Create a class component called 'Car'  
+  
+```javascript
+class Car extends React.Component {
+  render() {
+    return <h2>Hi, I am a Car!</h2>;
+  }
+}
+```  
+  
+#### Function Component  
+  
+Here is the same example as above, but created using a Function component instead.  
+  
+A Function component also returns HTML, and behaves much the same way as a Class component, but Function components can be written using much less code, are easier to understand, and will be preferred in this tutorial.  
+  
+#### Example - Create a function component called 'Car'  
+  
+```javascript
+function Car() {
+  return <h2>Hi, I am a Car!</h2>;
+}
+```  
+  
+### Rendering a Component  
+  
+Now your React application has a component called Car, which returns an ```<h2>``` element.
+
+To use this component in your application, use similar syntax as normal HTML: ```<Car />```  
+  
+#### Example - Display the 'Car' component in the "root" element:  
+  
+```javascript  
+ReactDOM.render(<Car />, document.getElementById('root'));
+```
