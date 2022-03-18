@@ -202,6 +202,7 @@ Props are **immutable** so we cannot modify the props from inside the component.
   
 When you need immutable data in the component, you have to add props to ```reactDom.render()``` method in the ```main.js``` file of your ReactJS project and used it inside the component in which you need. It can be explained in the below example.  
   
+**Here is an example of react *"Properties"* being utilized.**
 ```App.js```  
   
 ```javascript
