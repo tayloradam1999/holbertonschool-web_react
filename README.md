@@ -252,6 +252,14 @@ Components are independent and reusable bits of code. They serve the same purpos
   
 Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function components.  
   
+### Learning Objectives  
+- When to use a Class or a function to create a component
+- The lifecycle of a Class component
+- How to test a component
+- How to utilize a Jest spy to verify that a function is being called correctly
+- What an HOC is and how to use it
+- How to optimize performance and control which components to render  
+  
 ### Create your first component  
   
 When creating a React component, the component's name MUST start with an upper case letter  
@@ -296,13 +304,4 @@ To use this component in your application, use similar syntax as normal HTML: ``
   
 ```javascript  
 ReactDOM.render(<Car />, document.getElementById('root'));
-```  
-  
-### Learning Objectives
-- When to use a Class or a function to create a component
-- The lifecycle of a Class component
-- How to test a component
-- How to utilize a Jest spy to verify that a function is being called correctly
-- What an HOC is and how to use it
-- How to optimize performance and control which components to render  
-  
+```   
