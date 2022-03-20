@@ -1,9 +1,7 @@
-import { shallow } from 'enzyme';
+import { shallow, mount } from '../../config/setupTests';
 import React from 'react';
 import App from './App';
 import Login from '../Login/Login';
-import sinon from 'sinon';
-
 
 
 // shallow render app component
@@ -51,30 +49,20 @@ describe('<App />', () => {
 	// and I keep getting this error:
 	// TypeError: wrapper.instance(...).keyDownHandler is not a function
 
-	beforeEach(() => {
-		jest.clearAllMocks();
-	})
-
 	it(`Verifies that alert is called when ctrl-h is pressed`, () => {
-		jest.spyOn(window, 'alert').mockImplementation(() => {});
-		const wrapper = shallow(<App isLoggedIn />);
-		const event = {
-			ctrlKey: true,
-			key: 'h'
-		}
-		wrapper.instance().keyDownHandler(event);
-		expect(window.alert).toHaveBeenCalled();
-		expect(window.alert).toHaveBeenCalledWith('Logging you out')
+		const AlertSpy = jest.spyOn(window, 'alert');
+		const wrapper = mount(<App isLoggedIn />);
+		wrapper.instance().keyDownHandler({ keyCode: 72, ctrlKey: true });
+		expect(AlertSpy).toHaveBeenCalledWith('Logging you out');
+		wrapper.unmount();
 	})
 
 	it(`Verifies that logOut function is called when ctrl-h is pressed`, () => {
-		const logOut = jest.fn();
-		const wrapper = shallow(<App isLoggedIn logOut={logOut} />);
-		const e = {
-			ctrlKey: true,
-			key: 'h'
-		}
-		wrapper.instance().keyDownHandler(e);
-		expect(logOut).toHaveBeenCalled();
+		const ConsoleSpy = jest.spyOn(global.console, 'log');
+		const wrapper = mount(<App isLoggedIn />);
+		wrapper.instance().keyDownHandler({ keyCode: 72, ctrlKey: true });
+		expect(ConsoleSpy).toHaveBeenCalledWith('logOut function console log for testing');
+		wrapper.unmount();
 	})
+
 })
