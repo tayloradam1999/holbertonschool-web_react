@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect, useRef } from 'react'
 import Notifications from '../Notifications/Notifications'
 import { getLatestNotification } from '../utils/utils'
 import Login from '../Login/Login'
@@ -10,11 +10,10 @@ import propTypes from 'prop-types'
 
 // implement class components
 class App extends Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
+		// assign props to local variables
+		const { isLoggedIn } = this.props;
+
 		const listCourses = [
 			{ id: 1, name: 'ES6', credit: '60' },
 			{ id: 2, name: 'Webpack', credit: '20' },
@@ -26,13 +25,14 @@ class App extends Component {
 			{ id: 2, type: "urgent", value: "New resume available" },
 			{ id: 3, html: { __html: getLatestNotification() }, type: "urgent" }
 		]
+		
 
 		return (
 			<div className="App">
 				<Notifications listNotifications={listNotifications} />
 				<Header />
 				<div className="App-body">
-					{this.props.isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
+					{this.isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
 				</div>
 				<div className="App-footer">
 					<Footer />
@@ -44,11 +44,11 @@ class App extends Component {
 
 
 App.defaultProps = {
-	isLoggedIn: false
+	isLoggedIn: false,
 }
 
 App.propTypes = {
-	isLoggedIn: propTypes.bool
+	isLoggedIn: propTypes.bool,
 }
 
 export default App
