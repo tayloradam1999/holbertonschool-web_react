@@ -8,7 +8,7 @@ class BodySectionWithMarginBottom extends Component {
 	render() {
 		return (
 			<div className="bodySectionWithMargin">
-				<BodySection title={...this.props} />
+				<BodySection {...this.props} />
 			</div>
 		)
 	}
@@ -17,7 +17,10 @@ class BodySectionWithMarginBottom extends Component {
 
 BodySectionWithMarginBottom.propTypes = {
 	title: propTypes.string.isRequired,
-	children: propTypes.element
+	children: propTypes.oneOfType([
+		propTypes.string,
+		propTypes.element
+	])
 }
 
 BodySectionWithMarginBottom.defaultProps = {

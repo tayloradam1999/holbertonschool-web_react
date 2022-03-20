@@ -18,7 +18,10 @@ class BodySection extends Component {
 
 BodySection.propTypes = {
 	title: propTypes.string.isRequired,
-	children: propTypes.element
+	children: propTypes.oneOfType([
+		propTypes.string,
+		propTypes.element
+	])
 }
 
 BodySection. defaultProps = {
