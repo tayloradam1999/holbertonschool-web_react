@@ -2,6 +2,8 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import App from './App';
 import Login from '../Login/Login';
+import sinon from 'sinon';
+
 
 
 // shallow render app component
@@ -49,16 +51,20 @@ describe('<App />', () => {
 	// and I keep getting this error:
 	// TypeError: wrapper.instance(...).keyDownHandler is not a function
 
+	beforeEach(() => {
+		jest.clearAllMocks();
+	})
+
 	it(`Verifies that alert is called when ctrl-h is pressed`, () => {
-		jest.spyOn(window, 'alert');
+		jest.spyOn(window, 'alert').mockImplementation(() => {});
 		const wrapper = shallow(<App isLoggedIn />);
-		const e = {
+		const event = {
 			ctrlKey: true,
 			key: 'h'
 		}
-		wrapper.update();
-		wrapper.instance().keyDownHandler(e);
+		wrapper.instance().keyDownHandler(event);
 		expect(window.alert).toHaveBeenCalled();
+		expect(window.alert).toHaveBeenCalledWith('Logging you out')
 	})
 
 	it(`Verifies that logOut function is called when ctrl-h is pressed`, () => {

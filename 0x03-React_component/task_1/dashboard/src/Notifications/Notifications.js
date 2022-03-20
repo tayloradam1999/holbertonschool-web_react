@@ -37,7 +37,7 @@ const Notification = ({ displayDrawer, listNotifications }) => {
 						)}
 						{/* render listNotifications */}
 						{listNotifications.map(notification => (
-							<NotificationItem id={notification.id} html={notification.html} type={notification.type} value={notification.value} />
+							<NotificationItem key={notification.id} html={notification.html} type={notification.type} value={notification.value} />
 						))}
 					</ul>
 				</div>
