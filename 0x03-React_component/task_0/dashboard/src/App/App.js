@@ -8,22 +8,6 @@ import CourseList from '../CourseList/CourseList'
 import propTypes from 'prop-types'
 
 
-// const App = ({ isLoggedIn }) => {
-// 	return (
-// 		<div className="App">
-// 			<Notifications listNotifications={listNotifications} />
-// 			<Header />
-// 			<div className="App-body">
-// 				{isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
-// 			</div>
-// 			<div className="App-footer">
-// 				<Footer />
-// 			</div>
-// 		</div>
-// 	)
-// }
-
-
 // implement class components
 class App extends Component {
 	constructor(props) {
@@ -31,6 +15,18 @@ class App extends Component {
 	}
 
 	render() {
+		const listCourses = [
+			{ id: 1, name: 'ES6', credit: '60' },
+			{ id: 2, name: 'Webpack', credit: '20' },
+			{ id: 3, name: 'React', credit: '40' }
+		]
+		
+		const listNotifications = [
+			{ id: 1, type: "default", value: "New course available" },
+			{ id: 2, type: "urgent", value: "New resume available" },
+			{ id: 3, html: { __html: getLatestNotification() }, type: "urgent" }
+		]
+
 		return (
 			<div className="App">
 				<Notifications listNotifications={listNotifications} />
@@ -45,44 +41,6 @@ class App extends Component {
 		)
 	}
 }
-
-const listCourses = [
-{
-		id: 1,
-		name: 'ES6',
-		credit: '60'
-	},
-	{
-		id: 2,
-		name: 'Webpack',
-		credit: '20'
-	},
-	{
-		id: 3,
-		name: 'React',
-		credit: '40'
-	}
-]
-
-const listNotifications = [
-	{
-		id: 1,
-		type: "default",
-		value: "New course available"
-	},
-	{
-		id: 2,
-		type: "urgent",
-		value: "New resume available"
-	},
-	{
-		id: 3,
-		html: {
-			__html: getLatestNotification()
-		},
-		type: "urgent",
-	}
-]
 
 
 App.defaultProps = {
