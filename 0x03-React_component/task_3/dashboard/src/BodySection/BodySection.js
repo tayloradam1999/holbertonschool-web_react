@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 
 
+// Reusable component
 class BodySection extends Component {
 	render() {
 		const { title } = this.props
@@ -9,6 +10,7 @@ class BodySection extends Component {
 		return (
 			<div className="BodySection">
 				<h2>{title}</h2>
+				{/* All remaining prop children are put into this span */}
 				<span>{this.props.children}</span>
 			</div>
 		)

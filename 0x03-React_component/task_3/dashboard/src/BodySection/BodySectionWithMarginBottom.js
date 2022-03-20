@@ -8,6 +8,8 @@ class BodySectionWithMarginBottom extends Component {
 	render() {
 		return (
 			<div className="bodySectionWithMargin">
+				{/* calls BodySection with all props */}
+				{/* "title" prop will be in h2, all else in following p tag */}
 				<BodySection {...this.props} />
 			</div>
 		)
