@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useRef } from 'react'
+import React, { PureComponent } from 'react'
 import Notifications from '../Notifications/Notifications'
 import { getLatestNotification } from '../utils/utils'
 import Login from '../Login/Login'
@@ -9,7 +9,7 @@ import propTypes from 'prop-types'
 
 
 // implement class components
-class App extends Component {
+class App extends PureComponent {
 	render() {
 		// assign props to local variables
 		const { isLoggedIn } = this.props;
