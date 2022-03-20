@@ -6,7 +6,7 @@ export default class App extends Component {
 		return (
 			<React.Fragment>
 				<div className="App">
-					<body className="App-body">
+					<main className="App-body">
 						<p>Login to access the full dashboard</p>
 						<div className="inputs">
 							<label htmlFor="email" onClick={() => {
@@ -21,7 +21,7 @@ export default class App extends Component {
 							<input type="password" id="password" />
 							<button>OK</button>
 						</div>
-					</body>
+					</main>
 				</div>
 			</React.Fragment>
 		)

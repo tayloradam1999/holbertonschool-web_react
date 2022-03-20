@@ -7,9 +7,9 @@ class BodySection extends Component {
 		const { title } = this.props
 
 		return (
-			<div className="bodySection">
+			<div className="BodySection">
 				<h2>{title}</h2>
-				<p>{this.props.children}</p>
+				<span>{this.props.children}</span>
 			</div>
 		)
 	}

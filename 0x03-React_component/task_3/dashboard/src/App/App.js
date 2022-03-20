@@ -55,16 +55,17 @@ class App extends Component {
 				<Notifications listNotifications={listNotifications} />
 				<Header />
 				<div className="App-body">
-					{<BodySectionWithMarginBottom title="Log in to continue">isLoggedIn</BodySectionWithMarginBottom>
+					{isLoggedIn
 						? 
 						<BodySectionWithMarginBottom title="Course list">
 							<CourseList listCourses={listCourses} />
 						</BodySectionWithMarginBottom>
 						: 
-					<Login />}
-					<BodySection title="News from the School">
-						<p>Some Random Text</p>
-					</BodySection>
+						<BodySectionWithMarginBottom title="Login in to continue">
+							<Login />
+						</BodySectionWithMarginBottom>
+					}
+					<BodySection title="News from the School"><p>Boring random text</p></BodySection>
 				</div>
 				<div className="App-footer">
 					<Footer />

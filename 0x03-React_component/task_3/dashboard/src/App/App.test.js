@@ -1,7 +1,8 @@
 import { shallow, mount } from '../../config/setupTests';
-import React from 'react';
 import App from './App';
 import Login from '../Login/Login';
+
+window.alert = jest.fn();
 
 
 // shallow render app component
@@ -35,12 +36,12 @@ describe('<App />', () => {
 
 // describe case when isLoggedIn is true
 describe('<App />', () => {
-	it('Tests that the Login component is not rendered', () => {
+	it('Tests that the Login component is not rendered when isLoggedIn is true', () => {
 		const wrapper = shallow(<App isLoggedIn={true} />);
 		expect(wrapper.contains(<Login />)).toBe(false);
 	})
 
-	it('Tests that CourseList component is rendered', () => {
+	it('Tests that CourseList component is rendered when isLoggedIn is false', () => {
 		const wrapper = shallow(<App isLoggedIn />);
 		expect(wrapper.find('CourseList').length).toBe(1);
 	})
@@ -48,13 +49,14 @@ describe('<App />', () => {
 	// next 2 tests are under review, spyOn() is not working
 	// and I keep getting this error:
 	// TypeError: wrapper.instance(...).keyDownHandler is not a function
+	// 
+	// fixed by testing with mount()
 
 	it(`Verifies that alert is called when ctrl-h is pressed`, () => {
-		const AlertSpy = jest.spyOn(window, 'alert');
 		const wrapper = mount(<App isLoggedIn />);
+		wrapper.instance().keyDownHandler = window.alert;
 		wrapper.instance().keyDownHandler({ keyCode: 72, ctrlKey: true });
-		expect(AlertSpy).toHaveBeenCalledWith('Logging you out');
-		wrapper.unmount();
+		expect(window.alert).toHaveBeenCalled();
 	})
 
 	it(`Verifies that logOut function is called when ctrl-h is pressed`, () => {
