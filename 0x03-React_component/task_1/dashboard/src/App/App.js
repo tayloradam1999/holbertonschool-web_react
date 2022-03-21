@@ -18,6 +18,7 @@ class App extends Component {
 		window.addEventListener('keydown', (e) => {
 			if (e.ctrlKey && e.key === 'h') {
 				alert('Logging you out')
+				// e.preventDefault()
 				this.props.logOut()
 			}
 		})
@@ -63,7 +64,7 @@ class App extends Component {
 
 App.defaultProps = {
 	isLoggedIn: false,
-	logOut: () => {console.log('logOut function has been called')}
+	logOut: () => {}
 }
 
 App.propTypes = {
