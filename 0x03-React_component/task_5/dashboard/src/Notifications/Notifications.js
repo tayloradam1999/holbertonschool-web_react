@@ -14,6 +14,11 @@ class Notification extends Component {
 		console.log(`Notification ${id} has been read`);
 	}
 
+	// function that makes the file only update when next listNotifications is longer than current
+	shouldComponentUpdate(nextProps) {
+		return nextProps.listNotifications.length > this.props.listNotifications.length;
+	}
+
 	render() {
 		// assign props to local variables
 		const { listNotifications, displayDrawer } = this.props;
@@ -59,11 +64,13 @@ class Notification extends Component {
 
 
 Notification.defaultProps = {
-	displayDrawer: false
+	displayDrawer: false,
+	listNotifications: [],
 }
 
 Notification.propTypes = {
-	displayDrawer: propTypes.bool
+	displayDrawer: propTypes.bool,
+	listNotifications: propTypes.arrayOf(NotificationItemShape),
 }
 
 export default Notification
