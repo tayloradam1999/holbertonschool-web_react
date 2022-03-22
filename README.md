@@ -357,7 +357,7 @@ React will automatically append a “px” suffix to certain numeric inline styl
 </div>
 ```  
   
-Not all style properties are converted to pixel strings though. Certain ones remain unitless (eg ```zoom```, ```order```, ```flex```). A complete list of unitless properties can be seen here.
+Not all style properties are converted to pixel strings though. Certain ones remain unitless (eg ```zoom```, ```order```, ```flex```). A complete list of unitless properties can be seen [here](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
   
 
 
