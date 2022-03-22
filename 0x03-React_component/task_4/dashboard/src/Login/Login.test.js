@@ -1,5 +1,5 @@
-import { shallow } from 'enzyme';
-import React from 'react';
+import { shallow, mount, unmount } from '../../config/setupTests';
+import WithLoggingHOC from '../HOC/WithLogging';
 import Login from './Login';
 
 
@@ -11,8 +11,10 @@ describe('<Login />', () => {
 	})
 
 	it('Tests that the component renders 2 <input> and 2 <label> tags', () => {
-		const wrapper = shallow(<Login />);
+		const Example = WithLoggingHOC(() => <Login />);
+		const wrapper = mount(<Example />);
 		expect(wrapper.find('input').length).toBe(2);
 		expect(wrapper.find('label').length).toBe(2);
+		wrapper.unmount();
 	})
 });

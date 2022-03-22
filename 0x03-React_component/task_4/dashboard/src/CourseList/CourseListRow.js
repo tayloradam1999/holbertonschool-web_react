@@ -1,6 +1,5 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import WithLoggingHOC from '../HOC/WithLogging'
 import './CourseList.css'
 
 
@@ -33,4 +32,4 @@ CourseListRow.propTypes = {
 	])
 }
 
-export default WithLoggingHOC(CourseListRow);
+export default CourseListRow;

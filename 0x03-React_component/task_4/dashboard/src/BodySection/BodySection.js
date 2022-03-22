@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import WithLoggingHOC from '../HOC/WithLogging';
 import propTypes from 'prop-types';
 
 
@@ -31,4 +30,4 @@ BodySection. defaultProps = {
 	children: <React.Fragment />
 }
 
-export default WithLoggingHOC(BodySection);
+export default BodySection;

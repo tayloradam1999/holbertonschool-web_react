@@ -1,7 +1,6 @@
 import React from 'react'
 import CourseListRow from './CourseListRow'
 import CourseShape from './CourseShape'
-import WithLoggingHOC from '../HOC/WithLogging';
 import propTypes from 'prop-types'
 import './CourseList.css'
 
@@ -39,4 +38,4 @@ CourseList.propTypes = {
 }
 
 
-export default WithLoggingHOC(CourseList)
+export default CourseList;

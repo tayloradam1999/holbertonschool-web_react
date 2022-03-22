@@ -1,5 +1,4 @@
 import React from 'react'
-import WithLoggingHOC from '../HOC/WithLogging'
 import { getFullYear, getFooterCopy } from '../utils/utils'
 import './Footer.css'
 
@@ -12,4 +11,4 @@ function Footer(props) {
 }
 
 
-export default WithLoggingHOC(Footer);
+export default Footer;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import BodySection from './BodySection';
-import WithLoggingHOC from '../HOC/WithLogging';
 import './BodySectionWithMarginBottom.css';
 
 
@@ -30,4 +29,4 @@ BodySectionWithMarginBottom.defaultProps = {
 	children: <React.Fragment />
 }
 
-export default WithLoggingHOC(BodySectionWithMarginBottom);
+export default BodySectionWithMarginBottom;

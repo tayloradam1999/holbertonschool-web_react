@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import WithLoggingHOC from '../HOC/WithLogging'
 import logo from '../assets/logo.jpg'
 import './Header.css'
 
@@ -13,4 +12,4 @@ function Header(props) {
 }
 
 
-export default WithLoggingHOC(Header);
+export default Header;

@@ -3,7 +3,6 @@ import close_icon from '../assets/close-icon.png'
 import { getLatestNotification } from '../utils/utils'
 import NotificationItem from './NotificationItem'
 import NotificationItemShape from './NotificationItemShape'
-import WithLoggingHOC from '../HOC/WithLogging'
 import propTypes from 'prop-types'
 
 import './Notifications.css'
@@ -67,4 +66,4 @@ Notification.propTypes = {
 	displayDrawer: propTypes.bool
 }
 
-export default WithLoggingHOC(Notification);
+export default Notification;

@@ -1,5 +1,4 @@
 import React from 'react'
-import WithLoggingHOC from '../HOC/WithLogging'
 import propTypes from 'prop-types'
 
 
@@ -31,4 +30,4 @@ NotificationItem.defaultProps = {
 	id: 0,
 }
 
-export default WithLoggingHOC(NotificationItem);
+export default NotificationItem;
