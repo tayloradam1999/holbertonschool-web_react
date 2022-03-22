@@ -305,3 +305,59 @@ To use this component in your application, use similar syntax as normal HTML: ``
 ```javascript  
 ReactDOM.render(<Car />, document.getElementById('root'));
 ```   
+  
+## [0x04-React_inline_styling](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x04-React_inline_styling)  
+  
+## Learning Objectives
+- the differences between using a CSS file and inline styling
+- how to use a CSS-in-JS tool like Aphrodite
+- how to use conditions within JS to apply different styles
+- how to use responsive design and make the application show a different UI according to the screen size
+- how to create small animations within the app  
+  
+The style attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes. **For example:**
+  
+```javascript
+const divStyle = {
+  color: 'blue',
+  backgroundImage: 'url(' + imgUrl + ')',
+};
+
+function HelloWorldComponent() {
+  return <div style={divStyle}>Hello World!</div>;
+}
+```
+  
+Note that styles are not autoprefixed. To support older browsers, you need to supply corresponding style properties:  
+  
+```javascript
+const divStyle = {
+  WebkitTransition: 'all', // note the capital 'W' here
+  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+};
+
+function ComponentWithTransition() {
+  return <div style={divStyle}>This should work cross-browser</div>;
+}
+```  
+  
+Style keys are camelCased in order to be consistent with accessing the properties on DOM nodes from JS (e.g. ```node.style.backgroundImage```). Vendor prefixes other than ms should begin with a capital letter. This is why ```WebkitTransition``` has an uppercase “W”.  
+  
+React will automatically append a “px” suffix to certain numeric inline style properties. If you want to use units other than “px”, specify the value as a string with the desired unit. For example:  
+  
+```javascript
+// Result style: '10px'
+<div style={{ height: 10 }}>
+  Hello World!
+</div>
+
+// Result style: '10%'
+<div style={{ height: '10%' }}>
+  Hello World!
+</div>
+```  
+  
+Not all style properties are converted to pixel strings though. Certain ones remain unitless (eg ```zoom```, ```order```, ```flex```). A complete list of unitless properties can be seen here.
+  
+
+
