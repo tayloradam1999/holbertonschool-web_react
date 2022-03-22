@@ -15,7 +15,7 @@ class App extends Component {
 
 	// class function to check if component is mounted
 	componentDidMount() {
-		window.addEventListener('keydown', (e) => {
+		document.addEventListener('keydown', (e) => {
 			if (e.ctrlKey && e.key === 'h') {
 				alert('Logging you out')
 				// e.preventDefault()
@@ -26,7 +26,7 @@ class App extends Component {
 
 	// class function to check if component is unmounted
 	componentWillUnmount() {
-		window.removeEventListener('keydown', this.keyDownHandler);
+		document.removeEventListener('keydown', (e) => {});
 	}
 
 
