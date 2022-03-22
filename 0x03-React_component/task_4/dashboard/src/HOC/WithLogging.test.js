@@ -5,6 +5,10 @@ import WithLoggingHOC from './WithLogging';
 
 // With Logging is a HOC that logs the component name
 describe('<WithLogging />', () => {
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
+	
 	it(`Tests that console.log contains 'Component' on mount when wrapped element is PURE html`, () => {
 		console.log = jest.fn();
 		const Example = WithLoggingHOC(() => <p>Component</p>);

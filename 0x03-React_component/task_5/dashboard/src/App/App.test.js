@@ -7,6 +7,11 @@ window.alert = jest.fn();
 
 // shallow render app component
 describe('<App />', () => {
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
+
+	// regular render tests
 	it('Tests that App renders without crashing', () => {
 		const wrapper = shallow(<App />);
 		expect(wrapper.exists()).toBe(true);
