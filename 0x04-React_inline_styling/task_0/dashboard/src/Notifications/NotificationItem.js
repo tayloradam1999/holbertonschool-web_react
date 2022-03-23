@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import propTypes from 'prop-types'
 
 
-class NotificationItem extends PureComponent {
+class NotificationItem extends React.Component {
 	render() {
 		// props:
 		// - type: string, required, default: 'default'
@@ -39,4 +39,4 @@ NotificationItem.defaultProps = {
 	id: 0,
 }
 
-export default NotificationItem
+export default NotificationItem = React.memo(NotificationItem)
