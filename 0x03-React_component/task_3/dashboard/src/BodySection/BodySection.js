@@ -11,7 +11,7 @@ class BodySection extends Component {
 			<div className="BodySection">
 				<h2>{title}</h2>
 				{/* All remaining prop children are put into this span */}
-				<span>{this.props.children}</span>
+				{this.props.children}
 			</div>
 		)
 	}
