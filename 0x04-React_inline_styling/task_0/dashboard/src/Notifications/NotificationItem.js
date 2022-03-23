@@ -1,25 +1,21 @@
-import React from 'react'
+import React, { memo } from 'react'
 import propTypes from 'prop-types'
 
-
-class NotificationItem extends React.Component {
-	render() {
-		// props:
-		// - type: string, required, default: 'default'
-		// - value: string
-		// - html: object with key '__html' and value: string
-		// - markAsRead: function
-		// - id: number
-		const { type, value, html, markAsRead, id } = this.props
-		return (
-			<li onCLick={() => { markAsRead(id) }} 
+const NotificationItem = ({ type, value, html, markAsRead, id }) => {
+	// props:
+	// - type: string, required, default: 'default'
+	// - value: string
+	// - html: object with key '__html' and value: string
+	// - markAsRead: function
+	// - id: number
+	return (
+		<li onCLick={() => { markAsRead(id) }}
 			data-notification-type={type}
 			dangerouslySetInnerHTML={html}
-			>
-			{value}
-			</li>
-		)
-	}
+		>
+		  {value}
+		</li>
+	)
 }
 
 
@@ -35,8 +31,9 @@ NotificationItem.propTypes = {
 
 NotificationItem.defaultProps = {
 	type: 'default',
-	markAsRead: () => {},
+	markAsRead: () => { },
 	id: 0,
 }
 
-export default NotificationItem = React.memo(NotificationItem)
+
+export default memo(NotificationItem)
