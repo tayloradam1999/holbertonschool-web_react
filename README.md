@@ -74,6 +74,123 @@ module.exports = {
 	
 }
 ```  
+
+## [0x00-react_state](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x00-react_state)  
+  
+### Adding Local State to a Class
+
+Example class using ```this.props``` before altering to ```this.state```:  
+  
+```javascript
+class Clock extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.props.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+```  
+  
+We will move the ```date``` from props to state in three steps:  
+  
+- 1. Replace ```this.props.date``` with ```this.state.date``` in the ```render()``` method:  
+  
+```javascript
+class Clock extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+```  
+  
+- 2. Add a ```class constructor``` that assigns the initial ```this.state```:  
+  
+```javascript
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+```  
+  
+Note how we pass ```props``` to the base constructor:  
+  
+```javascript
+constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+}
+```  
+  
+Class components should always call the base constructor with ```props```.  
+  
+- 3. Remove the ```date``` prop from the ```<Clock />``` element:  
+  
+```javascript
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+```  
+  
+We will later add the timer code back to the component itself.
+  
+The result looks like this:
+  
+```javascript
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+```
+  
+**[Try it on CodePen](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)**
+
+<hr>
+
+### Learning Objectives
+- What the state of a component or a container is
+- The lifecycle of a component
+- How to modify a state and execute code in the right order
+- What a controlled component is
+- How to use Forms in React
+- How to reuse smaller components, keep them pure, and lift its state to principal containers
+- The use of a React Hook and how to create one
+- How to test State changes with Enzyme
   
 ## [0x01-react_intro](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x01-react_intro)  
   
