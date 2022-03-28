@@ -10,13 +10,19 @@ describe('<CourseList />', () => {
 		StyleSheetTestUtils.suppressStyleInjection();
 	});
 
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it(`Renders CourseList component without crashing`, () => {
 		const wrapper = shallow(<CourseList />);
+		wrapper.update();
 		expect(wrapper.exists()).toBe(true);
 	})
 
 	it(`Renders two different CourseListRow Components`, () => {
 		const wrapper = shallow(<CourseList />);
+		wrapper.update();
 		expect(wrapper.find(CourseListRow).length).toBe(2);
 	})
 })

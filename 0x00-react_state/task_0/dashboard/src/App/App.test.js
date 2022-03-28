@@ -38,26 +38,31 @@ describe('<App />', () => {
 
 	it('Contains Footer component', () => {
 		const wrapper = shallow(<App />);
+		wrapper.update();
 		expect(wrapper.find('Footer').length).toBe(1);
 	})
 
 	it('Tests that CourseList is not displayed', () => {
 		const wrapper = shallow(<App />);
+		wrapper.update();
 		expect(wrapper.find('CourseList').length).toBe(0);
 	})
 
 	it('Tests that <Notifications /> is not displayed', () => {
 		const wrapper = shallow(<App />);
+		wrapper.update();
 		expect(wrapper.contains(<Notifications />)).toBe(false);
 	})
 
 	it('Tests that <Notificationitem /> is not displayed', () => {
 		const wrapper = shallow(<App />);
+		wrapper.update();
 		expect(wrapper.contains(<NotificationItem />)).toBe(false);
 	})
 
 	it('Tests that the correct amount of <BodySection /> and <BodySectionWithMargin /> are displayed', () => {
 		const wrapper = shallow(<App />);
+		wrapper.update();
 		expect(wrapper.find(BodySection).length).toBe(1);
 		expect(wrapper.find(BodySectionWithMarginBottom).length).toBe(1);
 	})
@@ -70,13 +75,19 @@ describe('<App />', () => {
 		StyleSheetTestUtils.suppressStyleInjection();
 	});
 
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
+
 	it('Tests that the Login component is not rendered when isLoggedIn is true', () => {
 		const wrapper = shallow(<App isLoggedIn={true} />);
+		wrapper.update();
 		expect(wrapper.contains(<Login />)).toBe(false);
 	})
 
 	it('Tests that CourseList component is rendered when isLoggedIn is false', () => {
 		const wrapper = shallow(<App isLoggedIn />);
+		wrapper.update();
 		expect(wrapper.find('CourseList').length).toBe(1);
 	})
 
@@ -95,4 +106,52 @@ describe('<App />', () => {
 		wrapper.unmount();
 	})
 
+})
+
+
+// describe case for testing state
+describe('<App />', () => {
+	beforeEach(() => {
+		StyleSheetTestUtils.suppressStyleInjection();
+	});
+
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
+
+	it(`Tests that default state for displayDrawer is false`, () => {
+		const wrapper = mount(<App />);
+		expect(wrapper.state().displayDrawer).toBe(false);
+		// but if we change the state, it should be true
+		wrapper.setState({ displayDrawer: true });
+		expect(wrapper.state().displayDrawer).toBe(true);
+	})
+
+	it(`Tests that after calling handleDisplayDrawer that the state is update to true`, () => {
+		// without setting handleDisplayDrawer
+		const wrapper1 = mount(<App />);
+		wrapper1.instance().handleDisplayDrawer();
+		expect(wrapper1.state().displayDrawer).toBe(true);
+
+		// with setting handleDisplayDrawer
+		const wrapper2 = mount(<App />);
+		wrapper2.instance().handleHideDrawer();
+		expect(wrapper2.state().displayDrawer).toBe(false);
+		wrapper2.instance().handleDisplayDrawer();
+		expect(wrapper2.state().displayDrawer).toBe(true);
+	})
+
+	it(`Tests that after calling handleHideDrawer that the state is updated to false`, () => {
+		// without setting handleDisplayDrawer
+		const wrapper1 = mount(<App />);
+		wrapper1.instance().handleHideDrawer();
+		expect(wrapper1.state().displayDrawer).toBe(false);
+
+		// with setting handleDisplayDrawer
+		const wrapper2 = mount(<App />);
+		wrapper2.instance().handleDisplayDrawer();
+		expect(wrapper2.state().displayDrawer).toBe(true);
+		wrapper2.instance().handleHideDrawer();
+		expect(wrapper2.state().displayDrawer).toBe(false);
+	})
 })

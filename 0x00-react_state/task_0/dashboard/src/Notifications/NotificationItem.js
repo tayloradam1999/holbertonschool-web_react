@@ -12,7 +12,7 @@ const NotificationItem = ({ type, value, html, markAsRead, id }) => {
 	// - id: number
 	if (type === 'urgent') {
 		return (
-			<li onCLick={() => { markAsRead(id) }}
+			<li onClick={() => { markAsRead(id) }}
 				data-notification-type={type}
 				dangerouslySetInnerHTML={html}
 				className={css(itemStyles.urgent)}
@@ -22,7 +22,7 @@ const NotificationItem = ({ type, value, html, markAsRead, id }) => {
 		)
 	}
 	return (
-		<li onCLick={() => { markAsRead(id) }}
+		<li onClick={() => { markAsRead(id) }}
 			data-notification-type={type}
 			dangerouslySetInnerHTML={html}
 			className={css(itemStyles.default)}

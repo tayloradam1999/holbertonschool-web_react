@@ -16,6 +16,7 @@ describe('<Login />', () => {
 	
 	it('Tests that Login renders without crashing', () => {
 		const wrapper = shallow(<Login />);
+		wrapper.update();
 		expect(wrapper.exists()).toBe(true);
 	})
 
