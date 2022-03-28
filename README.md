@@ -7,6 +7,8 @@ Webpack is an open-source JavaScript module bundler. It is made primarily for ``
 ```Node.js``` is required for using webpack.  
   
 Webpack takes the dependencies and generates a dependency graph allowing web developers to use a modular approach for their web application development purposes. It can be used from the command line or can be configured using a configuration file which is named webpack.config.js. This file defines rules, plugins, etc., for a project. (webpack is highly extensible via rules which allow developers to write custom tasks that they want to perform when bundling files together.)  
+
+<hr>
   
 ### Learning Objectives  
 - How to setup Webpack for a basic project
@@ -14,6 +16,8 @@ Webpack takes the dependencies and generates a dependency graph allowing web dev
 - How to add plugins
 - How to split your code into chunks
 - How to setup a dev server  
+
+<hr>
   
 **Example of ```webpack.config.js``` file**  
   
@@ -96,7 +100,7 @@ class Clock extends React.Component {
   
 We will move the ```date``` from props to state in three steps:  
   
-- 1. Replace ```this.props.date``` with ```this.state.date``` in the ```render()``` method:  
+- Replace ```this.props.date``` with ```this.state.date``` in the ```render()``` method:  
   
 ```javascript
 class Clock extends React.Component {
@@ -111,7 +115,7 @@ class Clock extends React.Component {
 }
 ```  
   
-- 2. Add a ```class constructor``` that assigns the initial ```this.state```:  
+- Add a ```class constructor``` that assigns the initial ```this.state```:  
   
 ```javascript
 class Clock extends React.Component {
@@ -142,7 +146,7 @@ constructor(props) {
   
 Class components should always call the base constructor with ```props```.  
   
-- 3. Remove the ```date``` prop from the ```<Clock />``` element:  
+- Remove the ```date``` prop from the ```<Clock />``` element:  
   
 ```javascript
 ReactDOM.render(
@@ -201,6 +205,8 @@ Build encapsulated components that manage their own state, then compose them to 
 Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.  
   
 React can also render on the server using ```Node``` and power mobile apps using ```React Native```.  
+
+<hr>
   
 ### Learning Objectives  
 - How to create a basic Javascript application using React
@@ -209,6 +215,8 @@ React can also render on the server using ```Node``` and power mobile apps using
 - How to use the React Developer Tools to debug your code
 - How to use Enzyme’s Shadow rendering to test your application
 - How to use React with Webpack & Babel
+
+<hr>
   
 **Example of a basic ```React app```**  
   
@@ -318,6 +326,8 @@ Props stand for *"Properties."* They are read-only components. It is an object w
 Props are **immutable** so we cannot modify the props from inside the component. Inside the components, we can add attributes called props. These attributes are available in the component as this.props and can be used to render dynamic data in our render method.  
   
 When you need immutable data in the component, you have to add props to ```reactDom.render()``` method in the ```main.js``` file of your ReactJS project and used it inside the component in which you need. It can be explained in the below example.  
+
+<hr>
   
 ### Learning Objectives
 - How to create basic React components using functions
@@ -326,6 +336,8 @@ When you need immutable data in the component, you have to add props to ```react
 - How to define types for components
 - How to use Fragments
 - When to use a key to improve a loop’s performance  
+
+<hr>
   
 **Here is an example of React *"properties"* being utilized.**  
   
@@ -368,6 +380,8 @@ Javatpoint is one of the best Java training institute in Noida, Delhi, Gurugram,
 Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML.  
   
 Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function components.  
+
+<hr>
   
 ### Learning Objectives  
 - When to use a Class or a function to create a component
@@ -376,6 +390,8 @@ Components come in two types, Class components and Function components, in this 
 - How to utilize a Jest spy to verify that a function is being called correctly
 - What an HOC is and how to use it
 - How to optimize performance and control which components to render  
+
+<hr>
   
 ### Create your first component  
   
@@ -424,14 +440,7 @@ ReactDOM.render(<Car />, document.getElementById('root'));
 ```   
   
 ## [0x04-React_inline_styling](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x04-React_inline_styling)  
-  
-## Learning Objectives
-- the differences between using a CSS file and inline styling
-- how to use a CSS-in-JS tool like Aphrodite
-- how to use conditions within JS to apply different styles
-- how to use responsive design and make the application show a different UI according to the screen size
-- how to create small animations within the app  
-  
+
 The style attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes. **For example:**
   
 ```javascript
@@ -474,7 +483,14 @@ React will automatically append a “px” suffix to certain numeric inline styl
 </div>
 ```  
   
-Not all style properties are converted to pixel strings though. Certain ones remain unitless (eg ```zoom```, ```order```, ```flex```). A complete list of unitless properties can be seen [here](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
+Not all style properties are converted to pixel strings though. Certain ones remain unitless (eg ```zoom```, ```order```, ```flex```). A complete list of unitless properties can be seen [here](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).  
+
+<hr>
   
-
-
+## Learning Objectives
+- the differences between using a CSS file and inline styling
+- how to use a CSS-in-JS tool like Aphrodite
+- how to use conditions within JS to apply different styles
+- how to use responsive design and make the application show a different UI according to the screen size
+- how to create small animations within the app  
+  
