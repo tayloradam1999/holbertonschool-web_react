@@ -1,13 +1,17 @@
-import { Seq } from 'immutable';
+import { Seq, set } from 'immutable';
 
 function printBestStudents(students) {
-  // Filters students by score < 70 and console.logs their sequence
-  // with the first letter of their 'firstName' and 'lastName' capitalized
-  // students - Object
+  // filters students by their score > 70
+  // and prints to the console the student with
+  // the first letter in their 'firstName' and 'lastName' properties in uppercase.
+  // students - Map of students
   // returns nothing
-  let myObj = Seq.of(students).filter((student) => student.score < 70).map((student) => {
-    student.firstName = student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1);
-    student.lastName = student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1);
+  const mySeq = Seq(students);
+  const bestStudents = mySeq.filter((student) => student.get('score') > 70);
+  bestStudents.forEach((student) => {
+    // change first letter to uppercase
+    student.set('firstName', student.get('firstName').charAt(0).toUpperCase() + student.get('firstName').slice(1));
+    student.set('lastName', student.get('lastName').charAt(0).toUpperCase() + student.get('lastName').slice(1));
     console.log(student);
   });
 }
