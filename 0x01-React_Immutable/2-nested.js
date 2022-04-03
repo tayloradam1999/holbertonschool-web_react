@@ -13,14 +13,6 @@ export default function accessImmutableObject(object, array) {
     return undefined;
   }
 
-  if (array.length === 0) {
-    return object;
-  }
-
-  return array.reduce((acc, key) => {
-    if (acc instanceof Immutable.Map) {
-      return acc.get(key);
-    }
-    return acc[key];
-  });
+  const value = Immutable.getIn(object, array);
+  return value;
 }
