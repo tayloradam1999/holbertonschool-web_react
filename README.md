@@ -496,7 +496,7 @@ Not all style properties are converted to pixel strings though. Certain ones rem
   
 ## [0x01-React_Immutable](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x01-React_Immutable)
   
-```***Immutable.js***```
+```Immutable.js```
 
 **A few exmaples and how to read them**
   
