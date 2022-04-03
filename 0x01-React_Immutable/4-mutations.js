@@ -9,7 +9,7 @@ const map = Immutable.Map({
   6: 'Lucas',
 });
 
-const map2 = map.withMutations(map => {
+const map2 = map.withMutations((map) => {
   map.set('2', 'Benjamin');
   map.set('4', 'Oliver');
 });
