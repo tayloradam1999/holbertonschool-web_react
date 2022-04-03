@@ -8,4 +8,4 @@ function areMapsEqual(map1, map2) {
   return map1.is(map2);
 }
 
-export { areMapsEqual };
+export default areMapsEqual;

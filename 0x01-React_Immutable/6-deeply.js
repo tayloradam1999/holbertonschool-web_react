@@ -11,4 +11,4 @@ function mergeDeeplyElements(page1, page2) {
   return myMap.mergeDeep(myMap2);
 }
 
-export { mergeDeeplyElements };
+export default mergeDeeplyElements;
