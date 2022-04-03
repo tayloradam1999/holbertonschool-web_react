@@ -5,7 +5,7 @@ function areMapsEqual(map1, map2) {
   // map1 - immutable map
   // map2 - immutable map
   // returns true if maps are equal, false otherwise
-  if (map1.is(map2)) {
+  if (map1.Immutable.is(map2)) {
     return true;
   } else {
     return false;
