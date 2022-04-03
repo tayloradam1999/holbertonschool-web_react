@@ -1,4 +1,4 @@
-import { Seq, set } from 'immutable';
+import { Seq } from 'immutable';
 
 function printBestStudents(students) {
   // filters students by their score > 70
