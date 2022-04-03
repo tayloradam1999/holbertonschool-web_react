@@ -21,5 +21,4 @@ function mergeElements(page1, page2) {
   return myMap.merge(myMap2);
 }
 
-
 export { concatElements, mergeElements };
