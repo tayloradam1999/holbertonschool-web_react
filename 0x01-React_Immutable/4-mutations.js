@@ -9,9 +9,8 @@ const map = Immutable.Map({
   6: 'Lucas',
 });
 
-const map2 = map.withMutations((map) => {
-  map.set('2', 'Benjamin');
-  map.set('4', 'Oliver');
+const map2 = map.withMutations((mapItem) => {
+  mapItem.set(2, 'Benjamin').set(4, 'Oliver');
 });
 
 module.exports = {
