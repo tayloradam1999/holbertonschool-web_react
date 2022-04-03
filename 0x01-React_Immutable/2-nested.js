@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { getIn, Map } from 'immutable';
 
 export default function accessImmutableObject(object, array) {
   // object - plain object
@@ -9,10 +9,14 @@ export default function accessImmutableObject(object, array) {
   // - Immutable.Map
   // - String
   // - Undefined
-  if (!object || !array || !typeof object === Immutable.Map || !Array.isArray(array)) {
+  if (!object || !array || !typeof object === 'object' || !Array.isArray(array)) {
     return undefined;
   }
-
-  const value = Immutable.getIn(object, array);
-  return value;
+  let myMap = Map(object);
+  for (let i = 0; i < array.length; i++) {
+    myMap = getIn(myMap, array[i]);
+    if (myMap === undefined) {
+      return undefined;
+    }
+  }
 }
