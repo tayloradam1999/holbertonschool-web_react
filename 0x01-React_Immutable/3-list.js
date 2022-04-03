@@ -1,7 +1,7 @@
 import Immutable from 'immutable';
 
 export function getListObject(array) {
-  // returns array as a immutable List object
+  // returns array as an immutable List object
   return Immutable.List(array);
 }
 

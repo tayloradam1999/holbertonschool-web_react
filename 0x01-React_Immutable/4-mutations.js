@@ -10,6 +10,7 @@ const map = Immutable.Map({
 });
 
 const map2 = map.withMutations((mapItem) => {
+  // changes 2 of map's values
   mapItem.set(2, 'Benjamin').set(4, 'Oliver');
 });
 
