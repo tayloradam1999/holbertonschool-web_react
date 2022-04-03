@@ -529,7 +529,7 @@ class List<T> {
 }
 ```
   
-Many methods in Immutable.js accept values which implement the JavaScript **Iterable** protocol, and might appear like ```Iterable<string>``` for something which represents sequence of strings. Typically in JavaScript we use plain Arrays ([]) when an Iterable is expected, but also all of the Immutable.js collections are iterable themselves!
+Many methods in Immutable.js accept values which implement the JavaScript **Iterable** protocol, and might appear like ```Iterable<string>``` for something which represents sequence of strings. Typically in JavaScript we use plain Arrays ```([])``` when an Iterable is expected, but also all of the Immutable.js collections are iterable themselves!
   
 For example, to get a value deep within a structure of data, we might use ```getIn``` which expects an ```Iterable``` path:
   
