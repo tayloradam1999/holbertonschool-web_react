@@ -487,10 +487,67 @@ Not all style properties are converted to pixel strings though. Certain ones rem
 
 <hr>
   
-## Learning Objectives
+### Learning Objectives
 - the differences between using a CSS file and inline styling
 - how to use a CSS-in-JS tool like Aphrodite
 - how to use conditions within JS to apply different styles
 - how to use responsive design and make the application show a different UI according to the screen size
 - how to create small animations within the app  
   
+## [0x01-React_Immutable](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x01-React_Immutable)
+  
+```***Immutable.js***```
+
+**A few exmaples and how to read them**
+  
+All methods describe the kinds of data they accept and the kinds of data they return. For example a function which accepts two numbers and returns a number would look like this:
+  
+```javascript
+sum(first: number, second: number): number
+```
+  
+Sometimes, methods can accept different kinds of data or return different kinds of data, and this is described with a type variable, which is typically in all-caps. For example, a function which always returns the same kind of data it was provided would look like this:
+  
+```javascript
+identity<T>(value: T): T
+```
+  
+Type variables are defined with classes and referred to in methods. For example, a class that holds onto a value for you might look like this:
+  
+```javascript
+class Box<T> {
+  constructor(value: T)
+  getValue(): T
+}
+```
+  
+In order to manipulate Immutable data, methods that we're used to affecting a Collection instead return a new Collection of the same type. The type this refers to the same kind of class. For example, a List which returns new Lists when you push a value onto it might look like:
+  
+```javascript
+class List<T> {
+  push(value: T): this
+}
+```
+  
+Many methods in Immutable.js accept values which implement the JavaScript **Iterable** protocol, and might appear like ```Iterable<string>``` for something which represents sequence of strings. Typically in JavaScript we use plain Arrays ([]) when an Iterable is expected, but also all of the Immutable.js collections are iterable themselves!
+  
+For example, to get a value deep within a structure of data, we might use ```getIn``` which expects an ```Iterable``` path:
+  
+```javascript
+getIn(path: Iterable<string | number>): unknown
+```
+  
+To use this method, we could pass an array: ```data.getIn([ "key", 2 ]).```
+  
+**Note:** Note: All examples are presented in the modern [ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla) version of JavaScript. Use tools like Babel to support older browsers.
+  
+<hr>
+  
+### Learning Objectives
+- Immutable objects. Who, what, when, where, and why?
+- How to use the Immutable.js library to bring immutability to Javascript
+- The differences between List and Map
+- How to use Merge, Concat, and Deep Merging
+- What a lazy ```Seq``` is
+  
+<hr>
