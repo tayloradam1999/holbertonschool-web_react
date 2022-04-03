@@ -19,4 +19,5 @@ export default function accessImmutableObject(object, array) {
       return undefined;
     }
   }
+  return myMap;
 }
