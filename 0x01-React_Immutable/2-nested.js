@@ -9,7 +9,7 @@ export default function accessImmutableObject(object, array) {
   // - Immutable.Map
   // - String
   // - Undefined
-  if (!object) {
+  if (!object || !array || !typeof object === Immutable.Map || !Array.isArray(array)) {
     return undefined;
   }
 
