@@ -1,4 +1,4 @@
-import { seq } from 'Immutable';
+import { seq } from 'immutable';
 
 function printBestStudents(students) {
   // Filters students by score < 70 and console.logs their sequence
