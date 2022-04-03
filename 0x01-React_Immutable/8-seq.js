@@ -5,11 +5,9 @@ function printBestStudents(students) {
   // with the first letter of their 'firstName' and 'lastName' capitalized
   // students - Object
   // returns nothing
-  const myObj = Seq(students);
-  const myList = myObj.filter(student => student.get('score') < 70);
-  myList.forEach(student => {
-    student.firstName = student.charAt(0).toUpperCase() + student.slice(1);
-    student.lastName = student.charAt(0).toUpperCase() + student.slice(1);
+  let myObj = Seq.of(students).filter((student) => student.score < 70).map((student) => {
+    student.firstName = student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1);
+    student.lastName = student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1);
     console.log(student);
   });
 }
