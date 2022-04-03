@@ -1,4 +1,4 @@
-import { Seq } from 'immutable';
+import { Seq, Map } from 'immutable';
 
 function printBestStudents(students) {
   // filters students by their score > 70
@@ -8,12 +8,15 @@ function printBestStudents(students) {
   // returns nothing
   const mySeq = Seq(students);
   const bestStudents = mySeq.filter((student) => student.get('score') > 70);
-  bestStudents.forEach((student) => {
-    // change first letter to uppercase
-    student.set('firstName', student.get('firstName').charAt(0).toUpperCase() + student.get('firstName').slice(1));
-    student.set('lastName', student.get('lastName').charAt(0).toUpperCase() + student.get('lastName').slice(1));
-    console.log(student);
-  });
+
+  const myMap = Map(bestStudents);
+
+  myMap.forEach((student) => {
+    student.set('firstName', student.get('firstName').charAt(0).toUpperCase());
+    student.set('lastName', student.get('lastName').charAt(0).toUpperCase());
+  })
+
+  console.log(myMap.toJS());
 }
 
 export default printBestStudents;
