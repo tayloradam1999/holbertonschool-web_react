@@ -1,13 +1,5 @@
 import Immutable from 'immutable';
 
-const grades = {
-  1: {
-    score: 99,
-    firstName: 'guillaume',
-    lastName: 'salva',
-  }
-};
-
 function printBestStudents(students) {
   // filters students by their score > 70
   // and prints to the console the student with
@@ -25,7 +17,7 @@ function printBestStudents(students) {
 
   const JSObject = filtered.toJS();
 
-  for (let i = 0; i < JSObject.length; i++) {
+  for (let i = 0; i < JSObject.length; i = i + 1) {
     const student = JSObject[i];
     student.firstName = student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1);
     student.lastName = student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1);
