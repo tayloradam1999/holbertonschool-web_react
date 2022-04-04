@@ -5,7 +5,7 @@ function printBestStudents(students) {
   // and prints to the console the student with
   // the first letter in their 'firstName' and 'lastName' properties in uppercase.
   //
-  // students - Map of students
+  // students - Object containing students
   //
   // returns nothing
   const mySeq = Immutable.Seq(students);
@@ -15,14 +15,18 @@ function printBestStudents(students) {
     return student.score > 70;
   });
 
+  const capFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   const JSObject = filtered.toJS();
 
-  for (let i = 0; i < JSObject.length; i = i + 1) {
-    const student = JSObject[i];
-    student.firstName = student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1);
-    student.lastName = student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1);
+  Object.keys(JSObject).map((key) => {
+    const student = JSObject[key];
+    student.firstName = capFirstLetter(student.firstName);
+    student.lastName = capFirstLetter(student.lastName);
     return student;
-  }
+  });
 
   console.log(JSObject);
 }
