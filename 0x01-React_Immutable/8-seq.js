@@ -1,4 +1,12 @@
-import { Seq } from 'immutable';
+import Immutable from 'immutable';
+
+const grades = {
+  1: {
+    score: 99,
+    firstName: 'guillaume',
+    lastName: 'salva',
+  }
+};
 
 function printBestStudents(students) {
   // filters students by their score > 70
@@ -8,11 +16,23 @@ function printBestStudents(students) {
   // students - Map of students
   //
   // returns nothing
-  const mySeq = Seq(students);
-  const bestStudents = mySeq.filter((student) => student.get('score') > 70);
+  const mySeq = Immutable.Seq(students);
+  console.log(mySeq);
 
-  // console.log is formatted as a map, so we need to use .toJS()
-  // to convert it to a plain object
+  const filtered = mySeq.filter((student) => {
+    return student.score > 70;
+  });
+
+  const JSObject = filtered.toJS();
+
+  for (let i = 0; i < JSObject.length; i++) {
+    const student = JSObject[i];
+    student.firstName = student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1);
+    student.lastName = student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1);
+    return student;
+  }
+
+  console.log(JSObject);
 }
 
-export default printBestStudents;
+printBestStudents(grades);
