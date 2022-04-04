@@ -31,4 +31,4 @@ function printBestStudents(students) {
   console.log(JSObject);
 }
 
-printBestStudents(grades);
+export default printBestStudents;
