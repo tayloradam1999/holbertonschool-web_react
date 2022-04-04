@@ -11,13 +11,9 @@ function printBestStudents(students) {
   const mySeq = Immutable.Seq(students);
   console.log(mySeq);
 
-  const filtered = mySeq.filter((student) => {
-    return student.score > 70;
-  });
+  const filtered = mySeq.filter((student) => student.score > 70);
 
-  const capFirstLetter = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
+  const capFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const JSObject = filtered.toJS();
 
