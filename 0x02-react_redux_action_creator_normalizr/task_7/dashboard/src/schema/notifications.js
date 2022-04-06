@@ -24,13 +24,11 @@ export const getAllNotificationsByUser = (userId) => {
   //
   // returns: list containing all 'context' objects when 
   // the author id matches the userId parameter
-  const listNotifications = normalizedData.entities.notifications;
-  const listMessages = normalizedData.entities.messages;
   const myList = [];
-  for (let key in listNotifications) {
-    if (listNotifications[key].author === userId) {
-      myList.push(listMessages[listNotifications[key].context]);
+  jsonData.forEach((notification) => {
+    if (notification.author.id === userId) {
+      myList.push(notification.context);
     }
-  }
+  })
   return myList;
 }

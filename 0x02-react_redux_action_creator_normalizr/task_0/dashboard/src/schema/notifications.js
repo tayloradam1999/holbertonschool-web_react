@@ -9,10 +9,13 @@ const getAllNotificationsByUser = (userId) => {
   //
   // returns: list containing all 'context' objects when 
   // the author id matches the userId parameter
-  const allNotifications = JSON.parse(JSON.stringify(jsonData));
-  const filteredNotifications = allNotifications.filter(notification => notification.author.id === userId);
-  const onlyContext = filteredNotifications.map(notification => notification.context);
-  return onlyContext;
+  const myList = [];
+  jsonData.forEach((notification) => {
+    if (notification.author.id === userId) {
+      myList.push(notification.context);
+    }
+  })
+  return myList;
 }
 
 
