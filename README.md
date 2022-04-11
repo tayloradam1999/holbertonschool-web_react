@@ -754,7 +754,7 @@ const counterReducer = (count, action) => {
 };
 ```
   
-Here is an **example** of a **reducer selector**:
+Here is an **example** of a ```reducer selector```:
 ```javascript
 const getCount = (state) => state.count;
 ```
