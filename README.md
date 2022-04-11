@@ -717,3 +717,44 @@ This state structure is much flatter overall. Compared to the original nested fo
 - The logic for retrieving or updating a given item is now fairly simple and consistent. Given an item's type and its ID, we can directly look it up in a couple simple steps, without having to dig through other objects to find it.
 - Since each data type is separated, an update like changing the text of a comment would only require new copies of the "comments > byId > comment" portion of the tree. This will generally mean fewer portions of the UI that need to update because their data has changed. In contrast, updating a comment in the original nested shape would have required updating the comment object, the parent post object, the array of all post objects, and likely have caused all of the Post components and Comment components in the UI to re-render themselves.  
   
+## [0x03-react_redux_reducer_selector](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x03-react_redux_reducer_selector)
+  
+### What Is A Reducer
+  
+A Reducer is a pure function that takes the state of an application and action as arguments and returns a new state. For example, an authentication reducer can take an initial state of an application in form of an empty object and an action that tells it that a user has logged in and returned a new application state with a logged-in user.
+  
+### What Is A Reducer Selector
+  
+A selector is a small function you write that can take the entire Redux state, and pick out a value from it.  
+  
+<hr>
+  
+### Learning Objectives
+- The purpose of a reducer and the role it plays within your application
+- Why a reducer should stay as pure as possible
+- Why mutations should not happen within a reducer
+- The use of Immutable within the reducer
+- The use of Normalizr within the app
+- Selectors: what they are and when to use them
+  
+<hr>
+  
+Here is an **example** of a very basic ```reducer```:
+```javascript
+const counterReducer = (count, action) => {
+  if (action.type === 'INCREASE') {
+    return count + 1;
+  }
+
+  if (action.type === 'DECREASE') {
+    return count - 1;
+  }
+
+  return count;
+};
+```
+  
+Here is an **example** of a **reducer selector**:
+```javascript
+const getCount = (state) => state.count;
+```
