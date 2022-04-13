@@ -22,7 +22,7 @@ const notificationsNormalizer = (data) => {
 }
 
 export const getAllNotificationsByUser = (userId) => {
-  // returns a list containing all 'context' objects from the normalizedData variable
+  // returns a list containing all 'context' objects from the normalizedData var
   // when the author id matches the userId parameter
   //
   // @userId: string
