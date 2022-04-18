@@ -758,3 +758,46 @@ Here is an **example** of a ```reducer selector```:
 ```javascript
 const getCount = (state) => state.count;
 ```
+  
+[0x04-react_redux_connectors_and_providers](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x04-react_redux_connectors_and_providers)
+  
+### What Is A Connector
+  
+A connector is a function that takes a component and returns a new component.
+  
+### What Is A Provider
+  
+A provider is a component that wraps your application and makes the Redux store available to it.
+  
+<hr>
+  
+### Learning Objectives
+- Redux connectors and how to use them
+- The different functions you can pass to a connector (mapStateToProps, mapDispatchToPros)
+- How to map an action creator to a component using a connector
+- How to map an async action creator to a component with Redux Thunk
+- What Redux Providers are and how to set up your app’s store
+- How you can improve a connector’s performance using Reselect
+- How to use Redux’s dev tools to debug the state of your application
+  
+<hr>
+  
+Here is an **example** of a very basic ```connector```:
+```javascript
+const mapStateToProps = (state) => {
+  return {
+    count: state.count
+  };
+};
+```
+  
+Here is an **example** of a ```provider```:
+```javascript
+const store = createStore(counterReducer);
+
+  const App = () => (
+    <Provider store={store}>
+      <Counter />
+    </Provider>
+  );
+```
