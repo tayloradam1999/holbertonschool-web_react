@@ -196,6 +196,64 @@ ReactDOM.render(
 - The use of a React Hook and how to create one
 - How to test State changes with Enzyme
   
+## [0x01-React_Immutable](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x01-React_Immutable)
+  
+```Immutable.js```
+
+**A few exmaples and how to read them**
+  
+All methods describe the kinds of data they accept and the kinds of data they return. For example a function which accepts two numbers and returns a number would look like this:
+  
+```javascript
+sum(first: number, second: number): number
+```
+  
+Sometimes, methods can accept different kinds of data or return different kinds of data, and this is described with a type variable, which is typically in all-caps. For example, a function which always returns the same kind of data it was provided would look like this:
+  
+```javascript
+identity<T>(value: T): T
+```
+  
+Type variables are defined with classes and referred to in methods. For example, a class that holds onto a value for you might look like this:
+  
+```javascript
+class Box<T> {
+  constructor(value: T)
+  getValue(): T
+}
+```
+  
+In order to manipulate Immutable data, methods that we're used to affecting a Collection instead return a new Collection of the same type. The type this refers to the same kind of class. For example, a List which returns new Lists when you push a value onto it might look like:
+  
+```javascript
+class List<T> {
+  push(value: T): this
+}
+```
+  
+Many methods in Immutable.js accept values which implement the JavaScript **Iterable** protocol, and might appear like ```Iterable<string>``` for something which represents sequence of strings. Typically in JavaScript we use plain Arrays ```([])``` when an Iterable is expected, but also all of the Immutable.js collections are iterable themselves!
+  
+For example, to get a value deep within a structure of data, we might use ```getIn``` which expects an ```Iterable``` path:
+  
+```javascript
+getIn(path: Iterable<string | number>): unknown
+```
+  
+To use this method, we could pass an array: ```data.getIn([ "key", 2 ]).```
+  
+**Note:** Note: All examples are presented in the modern [ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla) version of JavaScript. Use tools like Babel to support older browsers.
+  
+<hr>
+  
+### Learning Objectives
+- Immutable objects. Who, what, when, where, and why?
+- How to use the Immutable.js library to bring immutability to Javascript
+- The differences between List and Map
+- How to use Merge, Concat, and Deep Merging
+- What a lazy ```Seq``` is
+  
+<hr>
+  
 ## [0x01-react_intro](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x01-react_intro)  
   
 React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.  
@@ -375,183 +433,6 @@ Welcome to JavaTpoint!!
 Javatpoint is one of the best Java training institute in Noida, Delhi, Gurugram, Ghaziabad and Faridabad.
 ```
   
-## [0x03-React_component]()
-  
-Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML.  
-  
-Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function components.  
-
-<hr>
-  
-### Learning Objectives  
-- When to use a Class or a function to create a component
-- The lifecycle of a Class component
-- How to test a component
-- How to utilize a Jest spy to verify that a function is being called correctly
-- What an HOC is and how to use it
-- How to optimize performance and control which components to render  
-
-<hr>
-  
-### Create your first component  
-  
-When creating a React component, the component's name MUST start with an upper case letter  
-  
-#### Class Component  
-  
-A class component must include the ```extends React.Component``` statement. This statement creates an inheritance to ```React.Component```, and gives your component access to ```React.Component's``` functions.  
-  
-The component also requires a ```render()``` method, this method returns HTML.  
-  
-#### Example - Create a class component called 'Car'  
-  
-```javascript
-class Car extends React.Component {
-  render() {
-    return <h2>Hi, I am a Car!</h2>;
-  }
-}
-```  
-  
-#### Function Component  
-  
-Here is the same example as above, but created using a Function component instead.  
-  
-A Function component also returns HTML, and behaves much the same way as a Class component, but Function components can be written using much less code, are easier to understand, and will be preferred in this tutorial.  
-  
-#### Example - Create a function component called 'Car'  
-  
-```javascript
-function Car() {
-  return <h2>Hi, I am a Car!</h2>;
-}
-```  
-  
-### Rendering a Component  
-  
-Now your React application has a component called Car, which returns an ```<h2>``` element.
-
-To use this component in your application, use similar syntax as normal HTML: ```<Car />```  
-  
-#### Example - Display the 'Car' component in the "root" element:  
-  
-```javascript  
-ReactDOM.render(<Car />, document.getElementById('root'));
-```   
-  
-## [0x04-React_inline_styling](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x04-React_inline_styling)  
-
-The style attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes. **For example:**
-  
-```javascript
-const divStyle = {
-  color: 'blue',
-  backgroundImage: 'url(' + imgUrl + ')',
-};
-
-function HelloWorldComponent() {
-  return <div style={divStyle}>Hello World!</div>;
-}
-```
-  
-Note that styles are not autoprefixed. To support older browsers, you need to supply corresponding style properties:  
-  
-```javascript
-const divStyle = {
-  WebkitTransition: 'all', // note the capital 'W' here
-  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
-};
-
-function ComponentWithTransition() {
-  return <div style={divStyle}>This should work cross-browser</div>;
-}
-```  
-  
-Style keys are camelCased in order to be consistent with accessing the properties on DOM nodes from JS (e.g. ```node.style.backgroundImage```). Vendor prefixes other than ms should begin with a capital letter. This is why ```WebkitTransition``` has an uppercase “W”.  
-  
-React will automatically append a “px” suffix to certain numeric inline style properties. If you want to use units other than “px”, specify the value as a string with the desired unit. For example:  
-  
-```javascript
-// Result style: '10px'
-<div style={{ height: 10 }}>
-  Hello World!
-</div>
-
-// Result style: '10%'
-<div style={{ height: '10%' }}>
-  Hello World!
-</div>
-```  
-  
-Not all style properties are converted to pixel strings though. Certain ones remain unitless (eg ```zoom```, ```order```, ```flex```). A complete list of unitless properties can be seen [here](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).  
-
-<hr>
-  
-### Learning Objectives
-- the differences between using a CSS file and inline styling
-- how to use a CSS-in-JS tool like Aphrodite
-- how to use conditions within JS to apply different styles
-- how to use responsive design and make the application show a different UI according to the screen size
-- how to create small animations within the app  
-  
-## [0x01-React_Immutable](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x01-React_Immutable)
-  
-```Immutable.js```
-
-**A few exmaples and how to read them**
-  
-All methods describe the kinds of data they accept and the kinds of data they return. For example a function which accepts two numbers and returns a number would look like this:
-  
-```javascript
-sum(first: number, second: number): number
-```
-  
-Sometimes, methods can accept different kinds of data or return different kinds of data, and this is described with a type variable, which is typically in all-caps. For example, a function which always returns the same kind of data it was provided would look like this:
-  
-```javascript
-identity<T>(value: T): T
-```
-  
-Type variables are defined with classes and referred to in methods. For example, a class that holds onto a value for you might look like this:
-  
-```javascript
-class Box<T> {
-  constructor(value: T)
-  getValue(): T
-}
-```
-  
-In order to manipulate Immutable data, methods that we're used to affecting a Collection instead return a new Collection of the same type. The type this refers to the same kind of class. For example, a List which returns new Lists when you push a value onto it might look like:
-  
-```javascript
-class List<T> {
-  push(value: T): this
-}
-```
-  
-Many methods in Immutable.js accept values which implement the JavaScript **Iterable** protocol, and might appear like ```Iterable<string>``` for something which represents sequence of strings. Typically in JavaScript we use plain Arrays ```([])``` when an Iterable is expected, but also all of the Immutable.js collections are iterable themselves!
-  
-For example, to get a value deep within a structure of data, we might use ```getIn``` which expects an ```Iterable``` path:
-  
-```javascript
-getIn(path: Iterable<string | number>): unknown
-```
-  
-To use this method, we could pass an array: ```data.getIn([ "key", 2 ]).```
-  
-**Note:** Note: All examples are presented in the modern [ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla) version of JavaScript. Use tools like Babel to support older browsers.
-  
-<hr>
-  
-### Learning Objectives
-- Immutable objects. Who, what, when, where, and why?
-- How to use the Immutable.js library to bring immutability to Javascript
-- The differences between List and Map
-- How to use Merge, Concat, and Deep Merging
-- What a lazy ```Seq``` is
-  
-<hr>
-  
 [0x02-react_redux_action_creator_normalizr](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x02-react_redux_action_creator_normalizr)
   
 Redux is a predictable state container for JavaScript apps.
@@ -717,6 +598,70 @@ This state structure is much flatter overall. Compared to the original nested fo
 - The logic for retrieving or updating a given item is now fairly simple and consistent. Given an item's type and its ID, we can directly look it up in a couple simple steps, without having to dig through other objects to find it.
 - Since each data type is separated, an update like changing the text of a comment would only require new copies of the "comments > byId > comment" portion of the tree. This will generally mean fewer portions of the UI that need to update because their data has changed. In contrast, updating a comment in the original nested shape would have required updating the comment object, the parent post object, the array of all post objects, and likely have caused all of the Post components and Comment components in the UI to re-render themselves.  
   
+## [0x03-React_component]()
+  
+Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML.  
+  
+Components come in two types, Class components and Function components, in this tutorial we will concentrate on Function components.  
+
+<hr>
+  
+### Learning Objectives  
+- When to use a Class or a function to create a component
+- The lifecycle of a Class component
+- How to test a component
+- How to utilize a Jest spy to verify that a function is being called correctly
+- What an HOC is and how to use it
+- How to optimize performance and control which components to render  
+
+<hr>
+  
+### Create your first component  
+  
+When creating a React component, the component's name MUST start with an upper case letter  
+  
+#### Class Component  
+  
+A class component must include the ```extends React.Component``` statement. This statement creates an inheritance to ```React.Component```, and gives your component access to ```React.Component's``` functions.  
+  
+The component also requires a ```render()``` method, this method returns HTML.  
+  
+#### Example - Create a class component called 'Car'  
+  
+```javascript
+class Car extends React.Component {
+  render() {
+    return <h2>Hi, I am a Car!</h2>;
+  }
+}
+```  
+  
+#### Function Component  
+  
+Here is the same example as above, but created using a Function component instead.  
+  
+A Function component also returns HTML, and behaves much the same way as a Class component, but Function components can be written using much less code, are easier to understand, and will be preferred in this tutorial.  
+  
+#### Example - Create a function component called 'Car'  
+  
+```javascript
+function Car() {
+  return <h2>Hi, I am a Car!</h2>;
+}
+```  
+  
+### Rendering a Component  
+  
+Now your React application has a component called Car, which returns an ```<h2>``` element.
+
+To use this component in your application, use similar syntax as normal HTML: ```<Car />```  
+  
+#### Example - Display the 'Car' component in the "root" element:  
+  
+```javascript  
+ReactDOM.render(<Car />, document.getElementById('root'));
+```   
+  
 ## [0x03-react_redux_reducer_selector](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x03-react_redux_reducer_selector)
   
 ### What Is A Reducer
@@ -757,47 +702,67 @@ const counterReducer = (count, action) => {
 Here is an **example** of a ```reducer selector```:
 ```javascript
 const getCount = (state) => state.count;
+```  
+  
+## [0x04-React_inline_styling](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x04-React_inline_styling)  
+
+The style attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property, is more efficient, and prevents XSS security holes. **For example:**
+  
+```javascript
+const divStyle = {
+  color: 'blue',
+  backgroundImage: 'url(' + imgUrl + ')',
+};
+
+function HelloWorldComponent() {
+  return <div style={divStyle}>Hello World!</div>;
+}
 ```
   
-[0x04-react_redux_connectors_and_providers](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x04-react_redux_connectors_and_providers)
+Note that styles are not autoprefixed. To support older browsers, you need to supply corresponding style properties:  
   
-### What Is A Connector
+```javascript
+const divStyle = {
+  WebkitTransition: 'all', // note the capital 'W' here
+  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+};
+
+function ComponentWithTransition() {
+  return <div style={divStyle}>This should work cross-browser</div>;
+}
+```  
   
-A connector is a function that takes a component and returns a new component.
+Style keys are camelCased in order to be consistent with accessing the properties on DOM nodes from JS (e.g. ```node.style.backgroundImage```). Vendor prefixes other than ms should begin with a capital letter. This is why ```WebkitTransition``` has an uppercase “W”.  
   
-### What Is A Provider
+React will automatically append a “px” suffix to certain numeric inline style properties. If you want to use units other than “px”, specify the value as a string with the desired unit. For example:  
   
-A provider is a component that wraps your application and makes the Redux store available to it.
+```javascript
+// Result style: '10px'
+<div style={{ height: 10 }}>
+  Hello World!
+</div>
+
+// Result style: '10%'
+<div style={{ height: '10%' }}>
+  Hello World!
+</div>
+```  
   
+Not all style properties are converted to pixel strings though. Certain ones remain unitless (eg ```zoom```, ```order```, ```flex```). A complete list of unitless properties can be seen [here](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).  
+
 <hr>
   
 ### Learning Objectives
-- Redux connectors and how to use them
-- The different functions you can pass to a connector (mapStateToProps, mapDispatchToPros)
-- How to map an action creator to a component using a connector
-- How to map an async action creator to a component with Redux Thunk
-- What Redux Providers are and how to set up your app’s store
-- How you can improve a connector’s performance using Reselect
-- How to use Redux’s dev tools to debug the state of your application
+- the differences between using a CSS file and inline styling
+- how to use a CSS-in-JS tool like Aphrodite
+- how to use conditions within JS to apply different styles
+- how to use responsive design and make the application show a different UI according to the screen size
+- how to create small animations within the app  
   
-<hr>
+[0x04-TypeScript](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x04-TypeScript)  
   
-Here is an **example** of a very basic ```connector```:
-```javascript
-const mapStateToProps = (state) => {
-  return {
-    count: state.count
-  };
-};
-```
+TypeScript adds additional syntax to JavaScript to support a tighter integration with your editor. Catch errors early in your editor.
   
-Here is an **example** of a ```provider```:
-```javascript
-const store = createStore(counterReducer);
-
-  const App = () => (
-    <Provider store={store}>
-      <Counter />
-    </Provider>
-  );
-```
+TypeScript code converts to JavaScript, which runs anywhere JavaScript runs: In a browser, on Node.js or Deno and in your apps.
+  
+TypeScript understands JavaScript and uses type inference to give you great tooling without additional code.
