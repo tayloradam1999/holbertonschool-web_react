@@ -121,7 +121,7 @@ class App extends Component {
 								<Login logIn={this.logIn} />
 							</BodySectionWithMarginBottom>
 						}
-						<BodySection title="News from the School"><p>Boring random text</p></BodySection>
+						<BodySection title="News from the School"><p>Random text here!</p></BodySection>
 					</div>
 					<div className={css(footerStyles.Footer)}>
 						<Footer />
