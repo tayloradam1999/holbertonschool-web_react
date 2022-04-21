@@ -759,7 +759,7 @@ Not all style properties are converted to pixel strings though. Certain ones rem
 - how to use responsive design and make the application show a different UI according to the screen size
 - how to create small animations within the app  
   
-[0x04-TypeScript](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x04-TypeScript)  
+# [0x04-TypeScript](https://github.com/tayloradam1999/holbertonschool-web_react/tree/main/0x04-TypeScript)  
   
 TypeScript adds additional syntax to JavaScript to support a tighter integration with your editor. Catch errors early in your editor.
   
